@@ -18,7 +18,13 @@ public class TeamTest {
 
     @Test
     public void newTeam_instantiatesCorrectly() throws Exception {
-        Team testTeam = new Team("The A Team","First time at a Hack-a-tron");
+        Team testTeam = new Team("A Team","First time");
         assertEquals(true, testTeam instanceof Team);
+    }
+
+    @Test
+    public void newTeam_getName_ATeam() {
+        Team testTeam = new Team(Team testTeam = new Team("A Team","First time");
+        assertEquals("A Team", testTeam.getName());
     }
 }
