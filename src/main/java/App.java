@@ -19,7 +19,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         post("/teams/new", (request, response) -> {
-            Map<String, Object> model = new HashMap <String, Object>();
+            Map<String, Object> model = new HashMap<String, Object>();
             String teamName = request.queryParams("teamName");
             String teamDescription = request.queryParams("teamDescription");
             Team newTeam = new Team(teamName,teamDescription);
