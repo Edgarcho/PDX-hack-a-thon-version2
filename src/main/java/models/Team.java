@@ -18,8 +18,10 @@ public class Team {
     public String getDescription(){
         return description;
     }
-    public List<String> getTeamMembers(){
-        return teamMembers;
+   // public List<String> getTeamMembers(){
+//        return teamMembers;
+//    }
+    public ArrayList newMember(String memberName){
+        return null;
     }
-
 }
