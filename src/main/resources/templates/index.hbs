@@ -1,0 +1,16 @@
+{{#partial "content"}}
+    <h1>PDX Hack-a-tron</h1>
+    <p>Add a new Team:</p>
+    <form action="/teams/new" method="POST">
+        <div class="form-group">
+            <label for="teamName">Team Name</label>
+            <input type="text" name="teamName" class="form-control" id="teamName">
+        </div>
+        <div class="form-group">
+            <label for="teamDescription">Description</label>
+            <input type="text" name="teamDescription" class="form-control" id="teamDescription">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{{/partial}}
+{{> layout.hbs}}
