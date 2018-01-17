@@ -48,13 +48,9 @@ public class TeamTest {
     @Test
     public void newMember_addNameToArray_Tom() {
         Team testTeam = new Team("A Team","First time");
-        assertEquals("Tom", testTeam.newMembers("Tom"));
+        List<String> teamMembers = new ArrayList<String>();
+        teamMembers.add("Tom");
+        assertEquals(teamMembers, testTeam.newMembers("Tom"));
     }
 
-    @Test
-    public void newMember_getMemberList_listOfMember() {
-        Team testTeam = new Team("A Team", "First time");
-        testTeam.newMembers("Tom");
-        assertEquals("Tom",testTeam.getTeamMembers());
-    }
 }
