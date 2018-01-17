@@ -43,4 +43,10 @@ public class TeamTest {
         ArrayList<String> teamMembers = new ArrayList<String>();
         assertEquals(teamMembers.size(), 0);
     }
+
+    @Test
+    public void newTeam_getTeamMembers_ArrayList() {
+        Team testTeam = new Team("A Team", "First time");
+        assertEquals(true,testTeam.getTeamMembers());
+    }
 }
