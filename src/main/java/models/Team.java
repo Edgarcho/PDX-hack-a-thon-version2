@@ -28,5 +28,11 @@ public class Team {
    public List<String>getMembers(){
         return members;
     }
+    public static ArrayList<Team>getAll(){
+        return null;
+    }
+    public static void clearAllPosts(){
+        instances.clear();
+    }
 }
 

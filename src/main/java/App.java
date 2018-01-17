@@ -25,5 +25,6 @@ public class App {
             Team newTeam = new Team(teamName,teamDescription);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
     }
 }
