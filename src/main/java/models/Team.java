@@ -36,5 +36,8 @@ public class Team {
     public static void clearAllTeams(){
         instances.clear();
     }
+    public int getId(){
+        return 0;
+    }
 }
 
