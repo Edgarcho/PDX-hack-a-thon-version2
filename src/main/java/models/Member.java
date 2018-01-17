@@ -4,4 +4,7 @@ public class Member {
 
     public Member(Team team, String firstMember, String secondMember, String thirdMember, String fourthMember) {
     }
+    public String getTeam(){
+        return null;
+    }
 }
