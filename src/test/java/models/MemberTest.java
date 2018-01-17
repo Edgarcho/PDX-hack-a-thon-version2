@@ -23,11 +23,15 @@ public class MemberTest {
     }
 
     @Test
-    public void addMember_getFirstMember_ArrayList() {
+    public void newMember_getMember_ArrayList() {
         Team testTeam = new Team("A Team", "First time");
         Member testMember = new Member(testTeam, "Tom", "Bob", "Mike", "Jerry");
         ArrayList<String> expectedOutput = new ArrayList<String>();
         expectedOutput.add("Tom");
-        assertEquals(expectedOutput,testMember.addMember("Tom"));
+        expectedOutput.add("Bob");
+        expectedOutput.add("Mike");
+        expectedOutput.add("Tim");
+        assertEquals(expectedOutput,testMember.getMemberList());
     }
+
 }

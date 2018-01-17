@@ -34,4 +34,10 @@ public class TeamTest {
         assertEquals("First time",testTeam.getDescription());
 
     }
+
+    @Test
+    public void newMember_addMemberToTeam_Tom() {
+        Team testTeam = new Team("A Team","First time");
+        assertEquals("Tom",testTeam.newMember("Tom"));
+    }
 }
