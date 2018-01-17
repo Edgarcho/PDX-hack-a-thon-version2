@@ -83,4 +83,10 @@ public class TeamTest {
         Team testTeam = new Team("A Team","First time");
         assertEquals(1,testTeam.getId());
     }
+
+    @Test
+    public void findReturnsCorrectTeam() {
+        Team testTeam = new Team("A Team","First time");
+        assertEquals(1,Team.findById(testTeam.getId()).getId());
+    }
 }
