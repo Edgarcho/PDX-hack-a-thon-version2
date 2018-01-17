@@ -12,16 +12,17 @@ public class Team {
         this.name = name;
         this.description = description;
     }
+
     public String getName(){
         return name;
     }
+
     public String getDescription(){
         return description;
     }
-   // public List<String> getTeamMembers(){
-//        return teamMembers;
-//    }
-    public ArrayList newMember(String memberName){
-        return null;
-    }
+
+    public String newMembers(String memberName){
+        teamMembers.add(memberName);
+        return memberName;
+   }
 }

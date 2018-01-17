@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -40,20 +41,14 @@ public class TeamTest {
     @Test
     public void newTeam_emptyArrayList() {
         Team testTeam = new Team("A Team", "First time");
-        ArrayList<String> teamMembers = new ArrayList<String>();
+        List<String> teamMembers = new ArrayList<String>();
         assertEquals(teamMembers.size(), 0);
     }
 
     @Test
     public void newMember_addNameToArray_Tom() {
         Team testTeam = new Team("A Team","First time");
-        assertEquals("Tom",testTeam.newMember("Tom"));
+        assertEquals("Tom", testTeam.newMembers("Tom"));
     }
-    //    @Test
-//    public void newTeam_getTeamMembers_ArrayList() {
-//        Team testTeam = new Team("A Team", "First time");
-//        ArrayList<String> teamMembers = new ArrayList<String>();
-//        teamMembers.add();
-//        assertArrayEquals(, testTeam.getTeamMembers());
-//    }
+
 }
