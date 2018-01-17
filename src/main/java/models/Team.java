@@ -21,6 +21,10 @@ public class Team {
         return description;
     }
 
+    public List<String>getTeamMembers(){
+        return null;
+    }
+
     public String newMembers(String memberName){
         teamMembers.add(memberName);
         return memberName;
