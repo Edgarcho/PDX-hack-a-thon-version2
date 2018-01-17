@@ -51,4 +51,10 @@ public class TeamTest {
         assertEquals("Tom", testTeam.newMembers("Tom"));
     }
 
+    @Test
+    public void newMember_getMemberList_listOfMember() {
+        Team testTeam = new Team("A Team", "First time");
+        testTeam.newMembers("Tom");
+        assertEquals("Tom",testTeam.getTeamMembers());
+    }
 }
