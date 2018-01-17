@@ -7,10 +7,12 @@ public class Team {
     private String name;
     private String description;
     private List<String> members = new ArrayList<String>();
+    private static ArrayList<Team> instances = new ArrayList<>();
 
     public Team(String name, String description) {
         this.name = name;
         this.description = description;
+        instances.add(this);
     }
 
     public String getName(){
@@ -29,9 +31,9 @@ public class Team {
         return members;
     }
     public static ArrayList<Team>getAll(){
-        return null;
+        return instances;
     }
-    public static void clearAllPosts(){
+    public static void clearAllTeams(){
         instances.clear();
     }
 }

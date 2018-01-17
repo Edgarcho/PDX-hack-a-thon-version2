@@ -17,12 +17,28 @@ public class TeamTest {
 
     @After
     public void tearDown() throws Exception {
+        Team.clearAllTeams();
     }
 
     @Test
     public void newTeam_instantiatesCorrectly() throws Exception {
         Team testTeam = new Team("A Team", "First time");
         assertEquals(true, testTeam instanceof Team);
+    }
+
+    @Test
+    public void AllTeamsAreCorrectlyReturned_true() {
+        Team testTeam = new Team("A Team","First time");
+        Team otherTeam = new Team("B Team","Group of four");
+        assertEquals(2,Team.getAll().size());
+    }
+
+    @Test
+    public void AllTeamsNamesAllTeams_true() {
+        Team testTeam = new Team("A Team","First time");
+        Team otherTeam = new Team("B Team","Group of four");
+        assertTrue(Team.getAll().contains(testTeam));
+        assertTrue(Team.getAll().contains(otherTeam));
     }
 
     @Test
@@ -35,7 +51,6 @@ public class TeamTest {
     public void newTeam_getDescription_Firsttime() {
         Team testTeam = new Team("A Team", "First time");
         assertEquals("First time", testTeam.getDescription());
-
     }
 
     @Test
