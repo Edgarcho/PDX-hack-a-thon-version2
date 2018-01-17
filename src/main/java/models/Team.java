@@ -18,5 +18,8 @@ public class Team {
     public String getDescription(){
         return description;
     }
+    public List<String> getTeamMembers(){
+        return null;
+    }
 
 }
