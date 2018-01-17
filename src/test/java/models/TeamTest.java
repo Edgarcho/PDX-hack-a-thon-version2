@@ -89,4 +89,10 @@ public class TeamTest {
         Team testTeam = new Team("A Team","First time");
         assertEquals(1,Team.findById(testTeam.getId()).getId());
     }
+    @Test
+    public  void findReturnsCorrectTeamWhenMoreThanOneTeamExists(){
+        Team testTeam = new Team("A Team","First time");
+        Team otherTeam = new Team("B Team","Group of four");
+        assertEquals(2, Team.findById(otherTeam.getId()).getId());
+    }
 }
