@@ -19,7 +19,7 @@ public class Team {
         return description;
     }
     public List<String> getTeamMembers(){
-        return null;
+        return teamMembers;
     }
 
 }
