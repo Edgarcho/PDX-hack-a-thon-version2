@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Team {
     private String name;
     private String description;
@@ -13,5 +15,8 @@ public class Team {
     }
     public String getDescription(){
         return description;
+    }
+    public ArrayList newMember(String newMemberName){
+        return null ;
     }
 }

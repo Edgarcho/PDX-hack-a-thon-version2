@@ -18,26 +18,26 @@ public class TeamTest {
 
     @Test
     public void newTeam_instantiatesCorrectly() throws Exception {
-        Team testTeam = new Team("A Team","First time");
+        Team testTeam = new Team("A Team", "First time");
         assertEquals(true, testTeam instanceof Team);
     }
 
     @Test
     public void newTeam_getName_ATeam() {
-        Team testTeam = new Team("A Team","First time");
+        Team testTeam = new Team("A Team", "First time");
         assertEquals("A Team", testTeam.getName());
     }
 
     @Test
     public void newTeam_getDescription_Firsttime() {
-        Team testTeam = new Team("A Team","First time");
-        assertEquals("First time",testTeam.getDescription());
+        Team testTeam = new Team("A Team", "First time");
+        assertEquals("First time", testTeam.getDescription());
 
     }
 
     @Test
     public void newMember_addMemberToTeam_Tom() {
-        Team testTeam = new Team("A Team","First time");
-        assertEquals("Tom",testTeam.newMember("Tom"));
+        Team testTeam = new Team("A Team", "First time");
+        assertEquals("Tom", testTeam.newMember("Tom"));
     }
 }
