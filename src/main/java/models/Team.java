@@ -6,7 +6,7 @@ import java.util.List;
 public class Team {
     private String name;
     private String description;
-    private List<String> teamMembers = new ArrayList<String>();
+    private List<String> Members = new ArrayList<String>();
 
     public Team(String name, String description) {
         this.name = name;
@@ -22,7 +22,11 @@ public class Team {
     }
 
     public List newMembers(String memberName){
-        teamMembers.add(memberName);
-        return teamMembers;
+        Members.add(memberName);
+        return Members;
    }
+   public List<String>getMembers(){
+        return null;
+    }
 }
+
