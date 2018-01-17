@@ -1,6 +1,10 @@
 package models;
 
+import java.util.ArrayList;
+
 public class Member {
+
+
 
     private Team teamInfo;
 
@@ -9,5 +13,10 @@ public class Member {
     }
     public Team getTeam(){
         return teamInfo;
+    }
+    public ArrayList<String>addMember(String firstMember){
+    ArrayList<String>result = new ArrayList<String>();
+    result.add(firstMember);
+    return null;
     }
 }
