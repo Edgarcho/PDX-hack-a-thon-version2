@@ -76,4 +76,11 @@ public class TeamTest {
         testTeam.newMembers("Tom");
         assertEquals(members,testTeam.getMembers());
     }
+
+    @Test
+    public void getId_teamsInstantiateWithAnID_1() {
+        Team.clearAllTeams();
+        Team testTeam = new Team("A Team","First time");
+        assertEquals(1,testTeam.getId());
+    }
 }

@@ -1,5 +1,15 @@
 {{#partial "content"}}
     <h1>PDX Hack-a-tron</h1>
+
+    {{#if teams}}
+        {{#each teams}}
+            <p>Current team:</p>
+            <p>{{ name }}</p>
+        {{/each}}
+    {{else}}
+        <p>No one has signed up!</p>
+    {{/if}}
+
     <p>Add a new Team:</p>
     <form action="/teams/new" method="POST">
         <div class="form-group">
