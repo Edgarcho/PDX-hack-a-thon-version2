@@ -5,15 +5,9 @@
     <h3>Team Description:</h3>
     <h4>{{team.description}}</h4>
     <h3>Member:</h3>
-    <h4> {{ team.members }}</h4>
-    {{#if team.members}}
-        {{#each teams.members}}
-            <h2>Current team member:</h2>
-            <p>{{members}}</p>
-        {{/each}}
-    {{else}}
-        <h3>Your team has no members.</h3>
-    {{/if}}
+    {{#each team.members}}
+        <h4>{{this}}</h4>
+    {{/each}}
     <a href="/teams/{{team.id}}/update">Edit Team</a>
     <a href="/teams/{{team.id}}/member">Add Member</a>
 {{/partial}}
