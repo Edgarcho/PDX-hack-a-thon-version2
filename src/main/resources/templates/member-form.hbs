@@ -1,9 +1,9 @@
 {{#partial "content"}}
     <h1>Add Member:</h1>
-    <form action="/teams/member" method="POST">
+    <form action="/teams/{{editTeam.id}}/member" method="POST">
         <div class="form-group">
             <label for="memberName">New Member</label>
-            <input type="text" class="form-control" id="memberName" name="memberName" placeholder="Tom Jones">
+            <input type="text" class="form-control" id="memberName" name="memberName" placeholder="Tom Jones" value="{{editTeam.members}}">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

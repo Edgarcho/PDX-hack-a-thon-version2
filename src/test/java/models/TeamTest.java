@@ -105,4 +105,11 @@ public class TeamTest {
         assertEquals(formerId, testTeam.getId());
         assertNotEquals(formerName,testTeam.getName());
     }
+    @Test
+    public void AddMemberTeamMember () {
+        Team testTeam = new Team("A Team","First time");
+        int formerId = testTeam.getId();
+        assertEquals(formerId, testTeam.getId());
+        assertEquals(testTeam.newMembers("Tom"),testTeam.getMembers());
+    }
 }

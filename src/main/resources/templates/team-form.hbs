@@ -4,6 +4,7 @@
         <form action="/teams/{{editTeam.id}}/update" method="POST">
             <label for="teamName">Edit Name:</label>
             <input type="text" name="teamName" class="form-control" id="teamName" value="{{editTeam.name}}">
+        </form>
     {{else}}
     <h1>Add Team</h1>
     <form action="/teams/new" method="POST">

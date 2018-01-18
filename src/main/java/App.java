@@ -65,6 +65,23 @@ public class App {
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/teams/:id/member", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfTeamToAdd = Integer.parseInt(request.params(":id"));
+            Team editTeam = Team.findById(idOfTeamToAdd);
+            model.put("editTeam", editTeam);
+            return new ModelAndView(model, "member-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/teams/:id/member",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String memberName = request.queryParams("memberName");
+            int idOfTeamToAdd = Integer.parseInt(request.params(":id"));
+            Team editTeam = Team.findById(idOfTeamToAdd);
+            editTeam.newMembers(memberName);
+            return new ModelAndView(model,"success.hbs");
+        }, new HandlebarsTemplateEngine());
+
         //get: show new member form
         get("/teams/member",(request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
