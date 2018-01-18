@@ -95,4 +95,14 @@ public class TeamTest {
         Team otherTeam = new Team("B Team","Group of four");
         assertEquals(2, Team.findById(otherTeam.getId()).getId());
     }
+
+    @Test
+    public void updateChangesTeamName () {
+        Team testTeam = new Team("A Team","First time");
+        String formerName = testTeam.getName();
+        int formerId = testTeam.getId();
+        teamTeam.update("B Team");
+        assertEquals(formerId, testTeam.getId());
+        assertNotEquals(formerName,testTeam.getName());
+    }
 }
