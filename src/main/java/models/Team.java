@@ -44,5 +44,8 @@ public class Team {
     public static Team findById(int id){
         return instances.get(id-1);
     }
+    public void update(String name){
+        this.name = name;
+    }
 }
 

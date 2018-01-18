@@ -101,7 +101,7 @@ public class TeamTest {
         Team testTeam = new Team("A Team","First time");
         String formerName = testTeam.getName();
         int formerId = testTeam.getId();
-        teamTeam.update("B Team");
+        testTeam.update("B Team");
         assertEquals(formerId, testTeam.getId());
         assertNotEquals(formerName,testTeam.getName());
     }
