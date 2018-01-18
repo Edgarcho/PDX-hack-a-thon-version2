@@ -21,10 +21,13 @@ public class App {
             return new ModelAndView(model, "newteam-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get: show new member form
-        get("/teams/member",(request, response) -> {
+        //post: process new team form
+        post("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            return new ModelAndView(model, "member-form.hbs");
+            String teamName = request.queryParams("teamName");
+            String teamDescription = request.queryParams("teamDescription");
+            Team newTeam = new Team(teamName,teamDescription);
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
         //get: show all teams
@@ -35,13 +38,21 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/teams/new", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            String teamName = request.queryParams("teamName");
-            String teamDescription = request.queryParams("teamDescription");
-            Team newTeam = new Team(teamName,teamDescription);
-            return new ModelAndView(model, "success.hbs");
+        //get: show an individual team
+        get("/teams/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfTeamToFind = Integer.parseInt(request.params(":id"));
+            Team foundTeam = Team.findById(idOfTeamToFind);
+            model.put("team", foundTeam);
+            return new ModelAndView(model, "team-detail.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //get: show new member form
+        get("/teams/member",(request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            return new ModelAndView(model, "member-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
     }
 }

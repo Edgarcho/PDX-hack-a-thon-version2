@@ -1,11 +1,11 @@
 {{#partial "content"}}
     {{#if teams}}
         {{#each teams}}
-            <p>Current team:</p>
-            <p>{{ name }}</p>
+            <h2>Current team:</h2>
+            <h3>{{name}}<a href="/teams/{{id}}"> Team Info</a></h3>
         {{/each}}
     {{else}}
-        <p>No one has signed up!</p>
+        <h1>No one has signed up!</h1>
     {{/if}}
 {{/partial}}
 {{> layout.hbs}}

@@ -1,0 +1,20 @@
+{{#partial "content"}}
+    <h1>{{team.name}}</h1>
+    <h3>Team Name:</h3>
+    <h4>{{ team.name }}</h4>
+    <h3>Team Description:</h3>
+    <h4>{{team.description}}</h4>
+    <h3>Member:</h3>
+    <h4> {{ team.member }}</h4>
+    {{#if team.member}}
+        {{#each teams.member}}
+            <h2>Current team member:</h2>
+            <p>{{member}}</p>
+        {{/each}}
+    {{else}}
+        <h3>Your team has no members.</h3>
+    {{/if}}
+    <a href="/">Add member</a>
+{{/partial}}
+
+{{> layout.hbs}}

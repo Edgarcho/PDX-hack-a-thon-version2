@@ -2,7 +2,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-        <title>{{#block "title" }}PDX Hack-a-tron{{/block}}</title>
+        <title>{{#block "title" }}PDX hack-a-tron{{/block}}</title>
         <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
         <link rel='stylesheet' href='/app.css'>
     </head>
@@ -11,14 +11,12 @@
             <li role="presentation" class="active"><a href="/">Home</a></li>
             <li role="presentation"><a href="/teams">See All Teams</a></li>
             <li role="presentation"><a href="/teams/new">Add Team</a></li>
-            <li role="presentation"><a href="/teams/member">Add Member</a></li>
         </ul>
 {{/block}}
         <div class="container">
-            <div class="jumbotron">
-                <h1>Welcome to PDX Hack-a-tron.</h1>
+            <div class="page-header">
+                <h1>Welcome to PDX hack-a-tron</h1>
             </div>
-            <img src="/images/coding.jpg" width="400" height="400">
             {{#block "content" }}
     {{/block }}
         </div>
