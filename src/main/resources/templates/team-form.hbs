@@ -1,4 +1,10 @@
 {{#partial "content"}}
+    {{#if editTeam}}
+        <h1>Edit Team</h1>
+        <form action="/teams/{{editTeam.id}}/update" method="POST">
+            <label for="teamName">Edit Name:</label>
+            <input type="text" name="teamName" class="form-control" id="teamName" value="{{editTeam.name}}">
+    {{else}}
     <h1>Add Team</h1>
     <form action="/teams/new" method="POST">
         <div class="form-group">
@@ -9,6 +15,7 @@
             <label for="teamDescription">Description:</label>
             <input type="text" name="teamDescription" class="form-control" id="teamDescription">
         </div>
+    {{/if}}
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 {{/partial}}
