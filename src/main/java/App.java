@@ -47,7 +47,7 @@ public class App {
             return new ModelAndView(model, "team-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get: show update team name form
+        //get: show update team form
         get("/teams/:id/update", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfTeamToEdit = Integer.parseInt(request.params(":id"));
@@ -56,6 +56,7 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //post: process update team form
         post("/teams/:id/update",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String newName = request.queryParams("teamName");
@@ -65,6 +66,7 @@ public class App {
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //get: show member form
         get("/teams/:id/member", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfTeamToAdd = Integer.parseInt(request.params(":id"));
@@ -73,6 +75,7 @@ public class App {
             return new ModelAndView(model, "member-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //post: process member form
         post("/teams/:id/member",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             String memberName = request.queryParams("memberName");
