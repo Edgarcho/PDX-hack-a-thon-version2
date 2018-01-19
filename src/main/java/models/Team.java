@@ -6,15 +6,11 @@ import java.util.List;
 public class Team {
     private String name;
     private String description;
-    private List<String> members = new ArrayList<String>();
-    private static ArrayList<Team> instances = new ArrayList<>();
     private int id;
 
     public Team(String name, String description) {
         this.name = name;
         this.description = description;
-        instances.add(this);
-        this.id = instances.size();
     }
 
     public void setName(String name){
@@ -48,34 +44,15 @@ public class Team {
     }
 
     public String getName(){
-        return name;
+        return this.name;
     }
 
     public String getDescription(){
-        return description;
+        return this.description;
     }
 
-    public List newMembers(String memberName){
-        members.add(memberName);
-        return members;
-   }
-    public List<String>getMembers(){
-        return members;
-    }
-    public static ArrayList<Team>getAll(){
-        return instances;
-    }
-    public static void clearAllTeams(){
-        instances.clear();
-    }
     public int getId(){
-        return id;
-    }
-    public static Team findById(int id){
-        return instances.get(id-1);
-    }
-    public void update(String name){
-        this.name = name;
+        return this.id;
     }
 }
 
