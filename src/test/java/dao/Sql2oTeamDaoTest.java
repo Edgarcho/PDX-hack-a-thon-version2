@@ -7,6 +7,7 @@ import org.sql2o.Sql2o;
 import javax.swing.tree.ExpandVetoException;
 import java.sql.Connection;
 
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 public class Sql2oTeamDaoTest {
@@ -33,5 +34,13 @@ public class Sql2oTeamDaoTest {
         int originalTeamId = team.getId();
         teamDao.add(team);
         assertNotEquals(originalTeamId, team.getId());
+    }
+
+    @Test
+    public void existingTeamsCanBeFoundById() throws Exception {
+        Team team  = new Team("A Team", "Group of one");
+        teamDao.add(team);
+        Team foundTeam = teamDao.findById(team.getId());
+        assertEquals(team, foundTeam);
     }
 }
