@@ -52,7 +52,7 @@ public class Sql2oTeamDaoTest {
     }
 
     @Test
-    public void noTaskReturnsEmptyList() throws Exception {
+    public void noTeamsReturnsEmptyList() throws Exception {
         assertEquals(0, teamDao.getAll().size());
     }
 }
