@@ -12,6 +12,7 @@ import static spark.Spark.staticFileLocation;
 
 
 public class App {
+    /*
     public static void main(String[] args) {
         staticFileLocation("/public");
 
@@ -85,4 +86,5 @@ public class App {
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
     }
+    */
 }
