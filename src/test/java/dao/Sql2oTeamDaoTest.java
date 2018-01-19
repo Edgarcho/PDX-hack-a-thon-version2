@@ -50,4 +50,9 @@ public class Sql2oTeamDaoTest {
         teamDao.add(team);
         assertEquals(1,teamDao.getAll().size());
     }
+
+    @Test
+    public void noTaskReturnsEmptyList() throws Exception {
+        assertEquals(0, teamDao.getAll().size());
+    }
 }
