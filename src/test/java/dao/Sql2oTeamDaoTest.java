@@ -43,4 +43,11 @@ public class Sql2oTeamDaoTest {
         Team foundTeam = teamDao.findById(team.getId());
         assertEquals(team, foundTeam);
     }
+
+    @Test
+    public void addedTeamsAreReturnedFromgetAll() throws Exception{
+        Team team = new Team("A Team","Group of one");
+        teamDao.add(team);
+        assertEquals(1,teamDao.getAll().size());
+    }
 }
