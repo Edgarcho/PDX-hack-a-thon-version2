@@ -11,10 +11,12 @@ public interface TeamDao {
     List<Team> getAll();
 
     Team findById(int id);
+    /*
     //update
-    // void update(int id, String name);
-    // void updateDescription(int id, String description);
+    void update(int id, String name);
+    void updateDescription(int id, String description);
     //delete
-    // void deleteTeam();
-    // void clearAllTeams();
+    void deleteTeam();
+    void clearAllTeams();
+    */
 }

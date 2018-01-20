@@ -1,6 +1,6 @@
 # PDX hack-a-thon
 
-#### A program that allows a hack-a-thon coordinator to track teams and their members. Allows the users to create new team and add members to teams. 1/18/18
+#### A program that allows a hack-a-thon coordinator to track teams and their members. Create a new team and add members to teams. Allows the users to store teams and members in database. 1/19/18
 
 #### By **Edgar Hernandez Ortiz**
 
@@ -37,6 +37,7 @@ A web application created with Java and Spark framework where a user can create 
   * Gradle
   * Spark framework
   * Handlebars
+  * SQL
 
 ## Support and contact details
 
