@@ -33,11 +33,12 @@ A web application created with Java and Spark framework where a user can create 
 ## Technologies Used
 * Java
   * IntelliJ IDEA
-  * Junit
+  * JUnit
   * Gradle
   * Spark framework
   * Handlebars
-  * SQL
+  * H2
+  * Sql2o
 
 ## Support and contact details
 

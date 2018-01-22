@@ -3,7 +3,7 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Team {
+public class Team{
     private String name;
     private String description;
     private int id;
