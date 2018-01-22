@@ -14,7 +14,5 @@ public interface TeamDao {
     void updateDescription(int id, String description);
     //delete
     void deleteById(int id);
-    /*
     void clearAllTeams();
-*/
 }
