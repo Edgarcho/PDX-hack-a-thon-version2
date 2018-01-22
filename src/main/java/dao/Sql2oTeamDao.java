@@ -71,4 +71,6 @@ public class Sql2oTeamDao implements TeamDao {
             System.out.println(ex);
         }
     }
+
+
 }

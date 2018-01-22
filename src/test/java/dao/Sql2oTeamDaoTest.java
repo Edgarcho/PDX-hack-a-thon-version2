@@ -75,4 +75,12 @@ public class Sql2oTeamDaoTest {
         Team updateTeam = teamDao.findById(team.getId());
         assertNotEquals(initialDescription,updateTeam.getDescription());
     }
+
+    @Test
+    public void deleteByIdDeletesCorrectTeam() throws Exception {
+        Team team = new Team("A team","Group of one");
+        teamDao.add(team);
+        teamDao.deleteById(team.getId());
+        assertEquals(0,teamDao.getAll().size());
+    }
 }
