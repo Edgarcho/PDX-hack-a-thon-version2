@@ -65,4 +65,14 @@ public class Sql2oTeamDaoTest {
         Team updateTeam = teamDao.findById(team.getId());
         assertNotEquals(initialName,updateTeam.getName());
     }
+
+    @Test
+    public void updateChangesTeamDescription() throws Exception {
+        String initialDescription = "Group of one";
+        Team team = new Team("A Team", initialDescription);
+        teamDao.add(team);
+        teamDao.updateDescription(team.getId(),"Group of Two");
+        Team updateTeam = teamDao.findById(team.getId());
+        assertNotEquals(initialDescription,updateTeam.getDescription());
+    }
 }
