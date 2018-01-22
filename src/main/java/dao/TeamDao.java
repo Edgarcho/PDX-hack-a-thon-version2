@@ -9,7 +9,7 @@ public interface TeamDao {
     void add (Team team);
     //read
     List<Team> getAll();
-    List<Member>getAllMembersByTeam(int teamId);
+    /*List<Member>getAllMembersByTeam(int teamId);*/
     Team findById(int id);
     //update
     void update(int id, String name);
