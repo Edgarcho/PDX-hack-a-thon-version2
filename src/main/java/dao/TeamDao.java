@@ -13,7 +13,8 @@ public interface TeamDao {
     void update(int id, String name);
     void updateDescription(int id, String description);
     //delete
-    void deleteById();
+    void deleteById(int id);
+    /*
     void clearAllTeams();
-
+*/
 }
