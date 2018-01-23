@@ -9,6 +9,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -114,6 +115,6 @@ public class Sql2oTeamDaoTest {
         assertTrue(teamDao.getAllMembersByTeam(teamId).size() == 2);
         assertTrue(teamDao.getAllMembersByTeam(teamId).contains(member));
         assertTrue(teamDao.getAllMembersByTeam(teamId).contains(otherMember));
-        assertTrue(teamDao.getAllMembersByTeam(teamId).contains(thirdMember));
+        assertFalse(teamDao.getAllMembersByTeam(teamId).contains(thirdMember));
     }
 }
