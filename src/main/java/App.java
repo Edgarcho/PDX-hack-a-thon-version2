@@ -29,8 +29,28 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             List<Team> allTeams = teamDao.getAll();
             model.put("teams", allTeams);
-            List<Member>members = memberDao.getAll();
+            List<Member> members = memberDao.getAll();
             return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //show new team form
+        get("/teams/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            List<Team> teams = teamDao.getAll();
+            model.put("teams", teams);
+            return new ModelAndView(model, "team-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        //post: process new team form
+        post("/teams", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String name = request.queryParams("name");
+            String description = request.queryParams("description");
+            Team newTeam = new Team(name, description);
+            teamDao.add(newTeam);
+            List<Team> teams = teamDao.getAll();
+            model.put("teams", teams);
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
     }
 
@@ -68,20 +88,6 @@ public class App {
 
 
     /*
-        get("/teams/new", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            return new ModelAndView(model, "team-form.hbs");
-        }, new HandlebarsTemplateEngine());
-
-
-        //post: process new team form
-        post("/teams/new", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            String teamName = request.queryParams("teamName");
-            String teamDescription = request.queryParams("teamDescription");
-            Team newTeam = new Team(teamName,teamDescription);
-            return new ModelAndView(model, "success.hbs");
-        }, new HandlebarsTemplateEngine());
 
         //get: show all teams
         get("/", (request, response) -> {
