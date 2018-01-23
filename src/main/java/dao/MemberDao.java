@@ -16,9 +16,10 @@ public interface MemberDao {
 
     //update
     void update(int id, String name, int teamId);
-/*
+
     //delete
     void deleteById(int id);
+    /*
     void clearAllMembers();
 */
 }

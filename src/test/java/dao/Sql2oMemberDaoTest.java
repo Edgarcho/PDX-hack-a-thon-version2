@@ -1,14 +1,11 @@
 package dao;
 
 import models.Member;
-import models.Team;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-
-import java.rmi.server.ExportException;
 
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.*;
@@ -67,5 +64,13 @@ public class Sql2oMemberDaoTest {
         memberDao.update(member.getId(),"Bob",1);
         Member updatedMember = memberDao.findById(member.getId());
         assertNotEquals(initialName, updatedMember.getName());
+    }
+
+    @Test
+    public void deleteByIdDeletesCorrectMember() throws Exception {
+        Member member = new Member("Edgar",1);
+        memberDao.add(member);
+        memberDao.deleteById(member.getId());
+        assertEquals(0, memberDao.getAll().size());
     }
 }
