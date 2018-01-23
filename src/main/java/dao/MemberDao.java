@@ -10,7 +10,6 @@ public interface MemberDao {
     void add (Member member);
 
     //read
-
     List<Member>getAll();
     Member findById(int id);
 
@@ -19,7 +18,5 @@ public interface MemberDao {
 
     //delete
     void deleteById(int id);
-    /*
     void clearAllMembers();
-*/
 }
