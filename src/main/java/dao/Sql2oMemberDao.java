@@ -31,4 +31,9 @@ public class Sql2oMemberDao implements MemberDao {
             System.out.println(ex);
         }
     }
+
+    @Override
+    public Member findById(int id) {
+        return null;
+    }
 }
