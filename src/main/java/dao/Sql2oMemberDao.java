@@ -35,7 +35,7 @@ public class Sql2oMemberDao implements MemberDao {
     public Member findById(int id) {
         try (Connection con = sql2o.open()){
             return con.createQuery("SELECT * FROM members WHERE id = :id")
-                    .addParameter("id",id)
+                    .addParameter("id", id)
                     .executeAndFetchFirst(Member.class);
         }
     }
@@ -53,9 +53,21 @@ public class Sql2oMemberDao implements MemberDao {
     String sql = "UPDATE members SET (name, teamId) = (:name, :teamId) WHERE id=:id";
     try(Connection con = sql2o.open()){
         con.createQuery(sql)
-                .addParameter("name",name)
-                .addParameter("teamId",teamId)
-                .addParameter("id",id)
+                .addParameter("name", name)
+                .addParameter("teamId", teamId)
+                .addParameter("id", id)
+                .executeUpdate();
+    } catch (Sql2oException ex){
+        System.out.println(ex);
+    }
+    }
+
+    @Override
+    public void deleteById(int id) {
+    String sql = "DELETE from members WHERE id=:id";
+    try(Connection con = sql2o.open()){
+        con.createQuery(sql)
+                .addParameter("id", id)
                 .executeUpdate();
     } catch (Sql2oException ex){
         System.out.println(ex);
