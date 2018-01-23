@@ -10,9 +10,8 @@ public interface MemberDao {
     void add (Member member);
 
     //read
-/*
+
     List<Member>getAll();
-*/
     Member findById(int id);
 /*
     //update

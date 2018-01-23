@@ -40,4 +40,9 @@ public class Sql2oMemberDao implements MemberDao {
                     .executeAndFetchFirst(Member.class);
         }
     }
+
+    @Override
+    public List<Member> getAll() {
+        return null;
+    }
 }
