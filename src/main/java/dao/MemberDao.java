@@ -8,11 +8,12 @@ public interface MemberDao {
 
     //create
     void add (Member member);
-
-    //read
 /*
+    //read
+
     List<Member> getAll();
     Member findById(int id);
+
 
     //update
     void update(int id, String name, int teamId);

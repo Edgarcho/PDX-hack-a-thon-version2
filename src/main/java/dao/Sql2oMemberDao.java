@@ -17,80 +17,17 @@ public class Sql2oMemberDao implements MemberDao {
 
     @Override
     public void add(Member member) {
-        String sql = "INSERT INTO members (name) VALUES (:name)";
+        String sql = "INSERT INTO members (name, teamId) VALUES (:name, :teamId)";
         try (Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql)
-                    .bind(member)
+                    .addParameter("name", member.getName())
+                    .addParameter("teamId", member.getTeamId())
+                    .addColumnMapping("NAME","name")
+                    .addColumnMapping("TEAMID","teamId")
                     .executeUpdate()
                     .getKey();
             member.setId(id);
         } catch (Sql2oException ex) {
-            System.out.println(ex);
-        }
-    }
-
-    @Override
-    public List<Member> getAll() {
-        try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM members")
-                    .executeAndFetch(Member.class);
-        }
-    }
-
-    @Override
-    public Team findById(int id) {
-        try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM teams WHERE id = :id")
-                    .addParameter("id", id)
-                    .executeAndFetchFirst(Team.class);
-        }
-    }
-
-    @Override
-    public void update(int id, String name) {
-        String sql = "UPDATE teams SET name = :name WHERE id=:id";
-        try (Connection con = sql2o.open()) {
-            con.createQuery(sql)
-                    .addParameter("name", name)
-                    .addParameter("id", id)
-                    .executeUpdate();
-        } catch (Sql2oException ex) {
-            System.out.println(ex);
-        }
-    }
-
-    @Override
-    public void updateDescription(int id, String description) {
-        String sql = "Update teams SET description = :description WHERE id=:id";
-        try (Connection con = sql2o.open()) {
-            con.createQuery(sql)
-                    .addParameter("description", description)
-                    .addParameter("id", id)
-                    .executeUpdate();
-        } catch (Sql2oException ex) {
-            System.out.println(ex);
-        }
-    }
-
-    @Override
-    public void deleteById(int id) {
-        String sql = "DELETE FROM teams WHERE id=:id";
-        try (Connection con = sql2o.open()){
-            con.createQuery(sql)
-                    .addParameter("id", id)
-                    .executeUpdate();
-        } catch (Sql2oException ex){
-            System.out.println(ex);
-        }
-    }
-
-    @Override
-    public void clearAllTeams() {
-        String sql = "DELETE from teams";
-        try (Connection con = sql2o.open()){
-            con.createQuery(sql)
-                    .executeUpdate();
-        } catch (Sql2oException ex){
             System.out.println(ex);
         }
     }

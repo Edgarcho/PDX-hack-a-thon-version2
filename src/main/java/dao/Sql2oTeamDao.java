@@ -1,6 +1,7 @@
 package dao;
 
 import models.Team;
+import models.Member;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
@@ -93,5 +94,10 @@ public class Sql2oTeamDao implements TeamDao {
         } catch (Sql2oException ex){
             System.out.println(ex);
         }
+    }
+
+    @Override
+    public List<Member> getAllMembersByTeam(int teamId) {
+        return null;
     }
 }
