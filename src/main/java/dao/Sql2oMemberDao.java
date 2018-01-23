@@ -48,4 +48,9 @@ public class Sql2oMemberDao implements MemberDao {
                     .executeAndFetch(Member.class);
         }
     }
+
+    @Override
+    public void update(int id, String name, int teamId) {
+
+    }
 }
