@@ -13,10 +13,10 @@ public interface MemberDao {
 
     List<Member>getAll();
     Member findById(int id);
-/*
+
     //update
     void update(int id, String name, int teamId);
-
+/*
     //delete
     void deleteById(int id);
     void clearAllMembers();
