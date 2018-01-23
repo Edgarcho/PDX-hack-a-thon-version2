@@ -53,4 +53,9 @@ public class Sql2oMemberDaoTest {
         memberDao.add(member);
         assertEquals(1,memberDao.getAll().size());
     }
+
+    @Test
+    public void noMembersReturnsEmptyList() throws Exception{
+        assertEquals(0,memberDao.getAll().size());
+    }
 }
