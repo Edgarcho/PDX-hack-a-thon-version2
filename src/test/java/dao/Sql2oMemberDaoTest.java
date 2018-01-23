@@ -84,4 +84,12 @@ public class Sql2oMemberDaoTest {
         memberDao.clearAllMembers();
         assertTrue(daoSize > 0 && daoSize > memberDao.getAll().size());
     }
+
+    @Test
+    public void teamIdIsReturnedCorrectly() throws Exception {
+        Member member = new Member("Edgar",1);
+        int originalTeamId = member.getTeamId();
+        memberDao.add(member);
+        assertEquals(originalTeamId, memberDao.findById(member.getId()).getTeamId());
+    }
 }
