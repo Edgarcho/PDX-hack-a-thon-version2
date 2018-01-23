@@ -1,3 +1,4 @@
+
 import dao.Sql2oMemberDao;
 import dao.Sql2oTeamDao;
 import models.Member;
@@ -6,7 +7,6 @@ import org.sql2o.Sql2o;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,15 +21,16 @@ public class App {
         staticFileLocation("/public");
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
-        Sql2oMemberDao memberDao = new Sql2oMemberDao(sql2o);
         Sql2oTeamDao teamDao = new Sql2oTeamDao(sql2o);
+        Sql2oMemberDao memberDao = new Sql2oMemberDao(sql2o);
 
-        //get: show all teams
+        //get: show all members in all teams and show all teams
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             List<Team> allTeams = teamDao.getAll();
             model.put("teams", allTeams);
             List<Member> members = memberDao.getAll();
+            model.put("members", members);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -52,52 +53,16 @@ public class App {
             model.put("teams", teams);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
-    }
-
-    //get a specific team (and the members it contains)
-    // /teams/:team_id
-
-    //get: show a specific member in a specific team
-    // /teams/:team_id/members/:member_id
-
-    //get: show a form to create a new team
-    //  /teams/new
-
-    //post: process a form to create a new team
-    //  /teams
-
-    //get: show a form to update team
-    //  /teams/update
-
-    //post: process a form to update team
-    //  /teams/update
-
-    //get: show a form to update description in team
-    //  /teams/updateDescription
-
-    //post: process a form to update description in team
-    //  /teams/updateDescription
-
-    //get: delete a team and members it contains
-    //  /teams/:teams_id/delete
-
-    //get: delete all teams and all members
-
-    //get: show all tasks in all categories and show all categories
-
-
-
-    /*
-
-        //get: show all teams
-        get("/", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            ArrayList<Team> teams = Team.getAll();
-            model.put("teams", teams);
-            return new ModelAndView(model, "index.hbs");
+/*
+        //get: delete all teams
+        get("teams/delete", (req, res) -> {
+            Map<String, Object> model = HashMap<String, Object>();
+            teamDao.clearAllTeams();
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get: show an individual team
+
+        //get: show an individual
         get("/teams/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfTeamToFind = Integer.parseInt(request.params(":id"));
@@ -143,6 +108,6 @@ public class App {
             editTeam.newMembers(memberName);
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
+         */
     }
-    */
 }
