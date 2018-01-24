@@ -10,7 +10,6 @@
             </select>
             <label for="name">Edit this team's Name:</label>
             <input type="text" name="newTeamName" class="form-control" id="newTeamName" placeholder="new team name">
-
     {{else}}
             <h1>Add a new Team!</h1>
         <form action="/teams" method="POST">
@@ -28,4 +27,3 @@
 {{/partial}}
 
 {{> layout.hbs}}
-

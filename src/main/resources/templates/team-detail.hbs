@@ -5,17 +5,18 @@
     <h3>Team Description:</h3>
     <h4>{{team.description}}</h4>
     <h3>Member:</h3>
-    {{#each members}}
-        <h4>{{name}}</h4>
-    {{/each}}
-    </br>
-    <a href="/members/new">Add Member</a>
-    <a href="/members/update">Edit member</a>
-    <a href="/members/delete">DELETE this member (no undo)</a>
-    </br>
+        <ul>
+            {{#each members}}
+                <li>
+                    {{name}}
+                    <br>
+                    <a href="/members/update">Edit member</a><br>
+                    <a href="/members/delete">DELETE this member (no undo)</a>
+                </li>
+            {{/each}}
+        </ul>
     <a href="/teams/update">Edit this team</a><br>
     <a href="/teams/delete">DELETE this team (no undo)</a>
-
 {{/partial}}
 
 {{> layout.hbs}}
