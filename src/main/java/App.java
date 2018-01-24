@@ -34,7 +34,7 @@ public class App {
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //show new team form
+        //get: show new team form
         get("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             List<Team> teams = teamDao.getAll();

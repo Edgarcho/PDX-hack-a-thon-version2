@@ -1,4 +1,5 @@
 {{#partial "content"}}
+
     {{#if editTeam}}
         <h1>Edit this team!</h1>
         <form action="/teams/update" method="POST">
@@ -7,7 +8,7 @@
                     <option value="{{id}}">{{name}}</option>
                 {{/each}}
             </select>
-            <label for="teamName">Edit this team's Name:</label>
+            <label for="name">Edit this team's Name:</label>
             <input type="text" name="newTeamName" class="form-control" id="newTeamName" placeholder="new team name">
 
     {{else}}
@@ -27,3 +28,4 @@
 {{/partial}}
 
 {{> layout.hbs}}
+

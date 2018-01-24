@@ -1,11 +1,15 @@
 {{#partial "content"}}
     {{#if teams}}
-        {{#each teams}}
-            <h2>Current team:</h2>
-            <h3>{{ name }}<a href="/teams/{{teamId}}">Team Info</a></h3>
-        {{/each}}
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action list-group-item-success">Teams Participating</a>
+            {{#each teams}}
+                <a href="/teams/{{id}}" class="list-group-item list-group-item-action">{{name}}</a>
+            {{/each}}
+        </div>
     {{else}}
         <h1>No one has signed up!</h1>
     {{/if}}
 {{/partial}}
 {{> layout.hbs}}
+
+
