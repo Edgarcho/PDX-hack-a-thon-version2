@@ -67,6 +67,19 @@ public class App {
             return new ModelAndView(model, "team-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
+        //post: process new member form
+        post("/members/news",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            List<Team> allTeam = teamDao.getAll();
+            model.put("teams", allTeam);
+            String memberName = request.queryParams("name");
+            int teamId = Integer.parseInt(request.queryParams("teamId"));
+            Member newMember = new Member(memberName,teamId);
+            memberDao.add(newMember);
+            model.put("member", newMember);
+            return new ModelAndView(model,"success.hbs");
+        }, new HandlebarsTemplateEngine());
+
 /*
         //get: delete all teams
         get("teams/delete", (req, res) -> {
@@ -113,15 +126,6 @@ public class App {
             return new ModelAndView(model, "member-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //post: process member form
-        post("/teams/:id/member",(request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            String memberName = request.queryParams("memberName");
-            int idOfTeamToAdd = Integer.parseInt(request.params(":id"));
-            Team editTeam = Team.findById(idOfTeamToAdd);
-            editTeam.newMembers(memberName);
-            return new ModelAndView(model,"success.hbs");
-        }, new HandlebarsTemplateEngine());
 
          {{#each members}}
                     <a href="/teams/{{teamId}}/members/{{id}}" class="list-group-item list-group-item-action">read more..</a>
