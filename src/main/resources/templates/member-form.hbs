@@ -1,10 +1,41 @@
 {{#partial "content"}}
-    <h1>Add Member:</h1>
-    <form action="/teams/{{editTeam.id}}/member" method="POST">
-            <label for="memberName">New Member</label>
-            <input type="text" class="form-control" id="memberName" name="memberName" placeholder="Tom Jones">
+    {{#if editMember}}
+        <form action="/members/update" method="POST">
+            <h1>Edit this Member!</h1>
+            <select id="memberToEditId" name="memberToEditId">
+                {{#each members}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <br>
+            <label for="name">Edit this member's name</label>
+            <input id="name" name="name" type="text" placeholder="Enter a new name">
+            <br>
+            <label for="teamId">Update this member's team:</label>
+            <select id="teamId" name="teamId">
+                {{#each teams}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <p>Don't see the right team?<a href="/teams/new">Add a new one first.</a></p>
+
+    {{else}}
+        <h2>Add a new member!</h2>
+        <form action ="/members/new" method="POST">
+        {{#if teams}}
+            <label for="name">Member Name</label>
+            <input id="name" name="name" type="text">
+            <label for="teamId">Which team does this member belong to:</label>
+            <select id="teamId" name="teamId">
+                {{#each teams}}
+                    <option value="{{id}}">{{name}}</option>
+                {{/each}}
+            </select>
+            <p>Don'r see the right team?<a href="/teams/new">Add a new one first.</a></p>
+        {{/if}}
+    {{/if}}
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        </form>
 {{/partial}}
 
 {{> layout.hbs}}
