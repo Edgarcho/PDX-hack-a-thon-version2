@@ -1,8 +1,8 @@
 {{#partial "content"}}
-    {{#if team}}
-        {{#each team}}
+    {{#if teams}}
+        {{#each teams}}
             <h2>Current team:</h2>
-            <h3>{{name}}<a href="/teams/{{teamId}}/members/{{id}}">Team Info</a></h3>
+            <h3>{{ name }}<a href="/teams/{{teamId}}">Team Info</a></h3>
         {{/each}}
     {{else}}
         <h1>No one has signed up!</h1>

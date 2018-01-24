@@ -1,15 +1,21 @@
 {{#partial "content"}}
     <h1>{{team.name}}</h1>
     <h3>Team Name:</h3>
-    <h4>{{ team.name }}</h4>
+    <h4>{{team.name }}</h4>
     <h3>Team Description:</h3>
     <h4>{{team.description}}</h4>
     <h3>Member:</h3>
-    {{#each team.members}}
+    {{#each members}}
         <h4>{{this}}</h4>
     {{/each}}
-    <a href="/teams/{{team.id}}/update">Edit Team</a>
-    <a href="/teams/{{team.id}}/member">Add Member</a>
+    </br>
+    <a href="/members/new">Add Member</a>
+    <a href="/members/update">Edit member</a>
+    <a href="/members/delete">DELETE this member (no undo)</a>
+    </br>
+    <a href="/teams/update">Edit this team</a><br>
+    <a href="/teams/delete">DELETE this team (no undo)</a>
+
 {{/partial}}
 
 {{> layout.hbs}}

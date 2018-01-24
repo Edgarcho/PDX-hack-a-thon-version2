@@ -19,7 +19,7 @@ import static spark.Spark.staticFileLocation;
 public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
-        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
+        String connectionString = "jdbc:h2:~/hackatron.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
         Sql2oTeamDao teamDao = new Sql2oTeamDao(sql2o);
         Sql2oMemberDao memberDao = new Sql2oMemberDao(sql2o);

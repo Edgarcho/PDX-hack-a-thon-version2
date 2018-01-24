@@ -8,8 +8,20 @@
     </head>
     <body>
         <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="/">Home</a></li>
-            <li role="presentation"><a href="/teams/new">Add a New Team</a></li>
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="/members/new">Add a New Member</a></li>
+            <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Team Menu <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    {{#if teams}}
+                        {{#each teams}}
+                            <li><a href="/teams/{{id}}">{{name}}</a></li>
+                        {{/each}}
+                        <li><a href="/teams/new/">Add a Team</a></li>
+                    {{else}}
+                        <li><a href="/teams/new/">Add a Team</a></li>
+                    {{/if}}
+                </ul>
+            </li>
         </ul>
 {{/block}}
         <div class="container">
@@ -26,5 +38,7 @@
         </div>
     </foot>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </html>
 {{/block }}
