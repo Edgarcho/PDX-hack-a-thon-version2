@@ -53,6 +53,20 @@ public class App {
             model.put("teams", teams);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
+
+        //get: show an individual team and members it contains
+        get("/teams/:teamId", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            int idOfTeamToFind = Integer.parseInt(request.params("teamId"));
+            List<Team> teams = teamDao.getAll();
+            model.put("teams", teams);
+            Team foundTeam = teamDao.findById(idOfTeamToFind);
+            model.put("team", foundTeam);
+            List<Member> allMembersByTeam = teamDao.getAllMembersByTeam(idOfTeamToFind);
+            model.put("members", allMembersByTeam);
+            return new ModelAndView(model, "team-detail.hbs");
+        }, new HandlebarsTemplateEngine());
+
 /*
         //get: delete all teams
         get("teams/delete", (req, res) -> {
@@ -108,6 +122,11 @@ public class App {
             editTeam.newMembers(memberName);
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
+
+         {{#each members}}
+                    <a href="/teams/{{teamId}}/members/{{id}}" class="list-group-item list-group-item-action">read more..</a>
+                {{/each}}
+
          */
     }
 }
