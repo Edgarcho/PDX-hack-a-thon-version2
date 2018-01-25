@@ -1,4 +1,5 @@
 {{#partial "content"}}
+
     {{#if editMember}}
         <form action="/members/update" method="POST">
             <h1>Edit this Member!</h1>
@@ -14,15 +15,13 @@
             <label for="teamId">Update this member's team:</label>
             <select id="teamId" name="teamId">
                 {{#each teams}}
-                    <option value="{{id}}">{{name}}</option>
+                    <option value={{id}}>{{name}}</option>
                 {{/each}}
             </select>
             <p>Don't see the right team?<a href="/teams/new">Add a new one first.</a></p>
-
     {{else}}
         <h2>Add a new member!</h2>
         <form action ="/members/new" method="POST">
-        {{#if teams}}
             <label for="name">Member Name</label>
             <input id="name" name="name" type="text">
             <label for="teamId">Which team does this member belong to:</label>
@@ -31,8 +30,7 @@
                     <option value="{{id}}">{{name}}</option>
                 {{/each}}
             </select>
-            <p>Don'r see the right team?<a href="/teams/new">Add a new one first.</a></p>
-        {{/if}}
+            <p>Don't see the right team?<a href="/teams/new">Add a new one first.</a></p>
     {{/if}}
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>

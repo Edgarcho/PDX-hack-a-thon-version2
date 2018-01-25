@@ -1,20 +1,27 @@
 {{#partial "content"}}
     <h1>{{team.name}}</h1>
-    <h3>Team Name:</h3>
-    <h4>{{team.name }}</h4>
     <h3>Team Description:</h3>
     <h4>{{team.description}}</h4>
-    <h3>Member:</h3>
-        <ul>
-            {{#each members}}
-                <li>
-                    {{name}}
-                    <br>
-                    <a href="/members/update">Edit this member</a><br>
-                    <a href="/members/delete">DELETE this member (no undo)</a>
-                </li>
-            {{/each}}
-        </ul>
+    <h3>Members:</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Member detail</th>
+            <th scope="col">Edit this member</th>
+            <th scope="col">Delete this member (no undo)</th>
+        </tr>
+        </thead>
+        {{#each members}}
+            <tbody>
+            <tr>
+                <th scope="row">{{name}}</th>
+                <td><a class="btn btn-warning btn-sm" href="/members/update" role="button">Edit</a></td>
+                <td><a class="btn btn-danger btn-sm" href="/members/delete" role="button">DELETE</a></td>
+            </tr>
+            </tbody>
+        {{/each}}
+    </table>
     <a href="/teams/update">Edit this team</a><br>
     <a href="/teams/delete">DELETE this team (no undo)</a>
 {{/partial}}
