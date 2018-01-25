@@ -7,7 +7,6 @@
         <thead>
         <tr>
             <th scope="col">Name</th>
-            <th scope="col">Edit this member</th>
             <th scope="col">Delete this member (no undo)</th>
         </tr>
         </thead>
@@ -15,14 +14,14 @@
             <tbody>
             <tr>
                 <th scope="row">{{name}}</th>
-                <td><a class="btn btn-warning btn-sm" href="/members/update" role="button">Edit</a></td>
-                <td><a class="btn btn-danger btn-sm" href="/members/delete" role="button">DELETE</a></td>
+                <td><a class="btn btn-danger btn-sm" href="/teams/{{id}}/members/{{id}}/delete" role="button">DELETE this member (no undo)</a></td>
             </tr>
             </tbody>
         {{/each}}
     </table>
-    <a href="/teams/update">Edit team</a><br>
-    <a href="/teams/delete">DELETE this team (no undo)</a>
+    <a class="btn btn-success" href="/teams/update" role="button">Edit team</a><br>
+    <a class="btn btn-warning" href="/members/update" role="button">Edit member</a><br>
+    <a class="btn btn-danger" href="/teams/{{team.id}}/delete" role="button">DELETE this team (no undo)</a>
 {{/partial}}
 
 {{> layout.hbs}}
