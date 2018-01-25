@@ -1,14 +1,16 @@
 {{#partial "content"}}
 
     {{#if editTeam}}
-        <h1>Edit this team!</h1>
+        <h1>Edit team!</h1>
         <form action="/teams/update" method="POST">
+        <label for=""editTeamId>Choose a team</label>
             <select name="editTeamId" id="editTeamId">
                 {{#each teams}}
                     <option value="{{id}}">{{name}}</option>
                 {{/each}}
             </select>
-            <label for="name">Edit this team's Name:</label>
+            <br>
+            <label for="newTeamName">Edit this team's name:</label>
             <input type="text" name="newTeamName" class="form-control" id="newTeamName" placeholder="new team name">
     {{else}}
             <h1>Add a new Team!</h1>

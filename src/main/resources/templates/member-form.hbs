@@ -2,7 +2,7 @@
 
     {{#if editMember}}
         <form action="/members/update" method="POST">
-            <h1>Edit this Member!</h1>
+            <h1>Edit Member!</h1>
             <select id="memberToEditId" name="memberToEditId">
                 {{#each members}}
                     <option value="{{id}}">{{name}}</option>
@@ -23,7 +23,7 @@
         <h2>Add a new member!</h2>
         <form action ="/members/new" method="POST">
             <label for="name">Member Name</label>
-            <input id="name" name="name" type="text">
+            <input id="name" name="name" type="text"><br>
             <label for="teamId">Which team does this member belong to:</label>
             <select id="teamId" name="teamId">
                 {{#each teams}}
