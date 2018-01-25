@@ -1,12 +1,12 @@
-# PDX hack-a-thon
+# PDX hack-a-thon version 2
 
-#### A program that allows a hack-a-thon coordinator to track teams and their members. Create a new team and add members to teams. Allows the users to store teams and members in database. 1/19/18
+#### A program that allows a hack-a-thon coordinator to track teams and their members. Create a new team and add members to teams. 1/19/18
 
 #### By **Edgar Hernandez Ortiz**
 
 ## Description
 
-A web application created with Java and Spark framework where a user can create a team, add members and update team name.
+A web application created with Java, SQL and Spark framework where a user can create a team, add members and update team and members name.
 
 
 ### Specs
@@ -21,7 +21,7 @@ A web application created with Java and Spark framework where a user can create 
 
 1. To run this program, you must have a JDK
 2. A Integrated Development Environment for Java.
-3. Clone this repository link. (https://github.com/Edgarcho/PDX-hack-a-thon.git)
+3. Clone this repository link. (https://github.com/Edgarcho/PDX-hack-a-thon-version2.git)
 4. Open the project in IntelliJ or in any Integrated Development Environment for Java.
 5. Run the App.
 6. Open in any browser.
@@ -39,6 +39,7 @@ A web application created with Java and Spark framework where a user can create 
   * Handlebars
   * H2
   * Sql2o
+  * BootStrap
 
 ## Support and contact details
 
